@@ -1,0 +1,6 @@
+Change each animal's species to the correct species.
+
+CASE
+    WHEN species = 'duck' THEN 'mouse'
+    WHEN species = 'mouse' THEN 'duck'
+END

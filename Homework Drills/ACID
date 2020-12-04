@@ -1,0 +1,11 @@
+The ACID properties define SQL database key properties to ensure consistent, safe and robust database modification when saved.
+
+ACID is an acronym that helps to remember the fundamental principles of a transnational system. ACID stands for Atomic, Consistent, Isolation, and Durability.  Here are some informal definitions:
+
+Atomic – Transaction acting on several pieces of information complete only if all pieces successfully save.   Here, “all or nothing” applies to the transaction.
+
+Consistent – The saved data cannot violate the integrity of the database. Interrupted modifications are rolled back to ensure the database is in a state before the change takes place.
+
+Isolation – No other transactions take place and affect the transaction in question.   This prevents “mid-air collisions.”
+
+Durable – System failures or restarts do not affect committed transactions. 
