@@ -45,12 +45,12 @@ def home():
             f"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br/>"
             f"Available Routes:<br/>"
             f"/api/v1.0/stations ~~~~~ a list of all weather observation stations<br/>"
-            f"/api/v1.0/precipitaton ~~ the latest year of preceipitation data<br/>"
+            f"/api/v1.0/precipitaton ~~ the latest year of precipitation data<br/>"
             f"/api/v1.0/temperature ~~ the latest year of temperature data<br/>"
             f"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br/>"
             f"~~~ datesearch (yyyy-mm-dd)<br/>"
-            f"/api/v1.0/datesearch/2015-05-30  ~~~~~~~~~~~ low, high, and average temp for date given and each date after<br/>"
-            f"/api/v1.0/datesearch/2015-05-30/2016-01-30 ~~ low, high, and average temp for date given and each date up to and including end date<br/>"
+            f"/api/v1.0/datesearch/2012-12-21  ~~~~~~~~~~~ low, high, and average temp for date given and each date after<br/>"
+            f"/api/v1.0/datesearch/2012-12-21/2012-12-31 ~~ low, high, and average temp for date given and each date up to and including end date<br/>"
             f"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br/>"
             f"~ data available from 2010-01-01 to 2017-08-23 ~<br/>"
             f"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
@@ -91,7 +91,7 @@ def temperature():
 
     return jsonify(tempraw)
 
-@app.route('/api/v1.0/datesearch/<startDate>')
+@app.route('/api/v1.0/datesearch/<startd>')
 def start(startd):
     sel = [prcpMeasurement.date, func.min(prcpMeasurement.tobs), func.avg(prcpMeasurement.tobs), func.max(prcpMeasurement.tobs)]
 
@@ -110,7 +110,7 @@ def start(startd):
         dates.append(date_dic)
     return jsonify(dates)
 
-@app.route('/api/v1.0/datesearch/<startDate>/<endDate>')
+@app.route('/api/v1.0/datesearch/<startd>/<endd>')
 def startEnd(startd, endd):
     sel = [prcpMeasurement.date, func.min(prcpMeasurement.tobs), func.avg(prcpMeasurement.tobs), func.max(prcpMeasurement.tobs)]
 
